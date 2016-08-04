@@ -1,28 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { fetchPosts } from '../actions';
 
-const Index = (props) => {
-  function renderPosts() {
+
+// Turn into smart component
+class Index extends Component {
+
+  componentWillMount() {
+    this.props.fetchPosts();
+  }
+  renderPosts() {
     return this.props.posts.map(post => {
       return (
-        <div>
-          <Link>
-            post.title,
-            post.tags,
+        <div key={post.id}>
+          <Link to={`/posts/${post.id}`} className="postings">
+            {post.title}
           </Link>
         </div>
       );
     });
   }
 
-  return (
-    <div>
-      <h1>Posts</h1>
-      Current Prop: {renderPosts()}
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <h1>Posts</h1>
+        {this.renderPosts()}
+      </div>
+    );
+  }
+}
 
 
 const mapStateToProps = (state) => (
@@ -31,4 +39,4 @@ const mapStateToProps = (state) => (
   }
 );
 
-export default connect(mapStateToProps, null)(Index);
+export default connect(mapStateToProps, { fetchPosts })(Index);

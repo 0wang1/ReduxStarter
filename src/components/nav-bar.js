@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-const prefix = 'cs52-blog.herokuapp.com/api/';
-
 class NavBar extends Component {
   constructor(props) {
     super(props);
@@ -16,11 +14,15 @@ class NavBar extends Component {
         <nav>
           <ul>
             <li>
-              <Link to={`${prefix}posts/index`}><i className="fa fa-gg" aria-hidden="true" /></Link>
+              <Link to={'/'}>
+                <i className="fa fa-gg fa-5x" aria-hidden="true" />
+              </Link>
             </li>
             <li><input id="inputID" disabled="disabled" type="text" /></li>
             <li>
-              <Link to={`${prefix}posts/new`}><button>Posts</button></Link>
+              <Link to={'/posts/new'}>
+                <button id="blogButton">Create Blog</button>
+              </Link>
             </li>
           </ul>
         </nav>

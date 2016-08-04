@@ -1,27 +1,44 @@
-
+#inputID {
+  padding-right: 100px;
+  width: 720px;
+  height: 65px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border 1s;
+  padding: 12px;
+  resize:none;
+}
 #submitID {
+  margin-right: 10px;
+  border-radius: 7px;
+  height: 75px;
+  width: 125px;
   border: 1px solid lightblue;
   text-align: center;
   text-decoration: none;
   background-color: transparent;
-  font-size: 10px;
+  font-size: 15px;
   cursor: pointer;
 }
 
 #cancelID {
-  border: 1px solid lighten(orange, 50%);
+  border-radius: 7px;
+  height: 75px;
+  width: 125px;
+  border: 1px solid orange;
   text-align: center;
-  text-decoration: none;
   background-color: transparent;
-  font-size: 10px;
+  font-size: 15px;
+  color: black;
   cursor: pointer;
 }
 
-button:first-child {
-  border: 1px solid rgba(255, 255, 255, 0.5);;
+#blogButton{
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 7px;
-  margin-left: -125px;
-  height: 50px;
+  margin-left: -140px;
+  height: 60px;
   width: 125px;
   background: lightgreen;
   color: white;
@@ -31,25 +48,66 @@ button:first-child {
   font-size: 10px;
   cursor: pointer;
 }
-input[type="text"]:first-child {
-  padding-right: 100px;
-  width: 700px;
-  height: 20px;
-  font-size: 10px;
+
+#deleteButton {
+  margin-left: 600px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 7px;
+  height: 75px;
+  width: 125px;
+  text-align: center;
+  background: rgb(255, 77, 77);
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline;
+}
+
+input[type="text"] {
+  margin-bottom: 10px;
+  width: 720px;
+  height: 24px;
+  font-size: 12px;
   border-radius: 4px;
   border: 1px solid #ccc;
   transition: border 1s;
   padding: 12px;
   resize:none;
 }
-
+i:first-child {
+  margin-top: 5px;
+  margin-left: 25px;
+  position: absolute;
+  z-index: 500;
+}
+i {
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-top: 2px;
+  position: absolute;
+  cursor: pointer;
+}
+i:hover {
+  opacity: 0.75;
+  color: rgba(0, 0, 0, 0.75);
+  filter: blur(2px);
+  transition: 0.5s;
+}
 input[type="submit"]:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     transition: 0.5s;
 }
-i {
-  cursor: pointer;
-  margin-left: 10px;
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  transition: 0.5s;
 }
 
 textarea:disabled {
@@ -69,10 +127,16 @@ div textarea {
   resize: none;
 }
 
-
-
 body {
   font-family: "Roboto", sans-serif;
   color: rgb(10%, 10%, 10%);
   margin: 50px;
+}
+
+.postings {
+  text-decoration: none;
+  font-size: 25px;
+  padding-bottom: 30px;
+  font-family: "Cursive", cursive, sans-serif;
+  color: blue;
 }
