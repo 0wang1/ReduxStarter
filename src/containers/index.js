@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { fetchPosts } from '../actions';
 
-
-// Turn into smart component
 class Index extends Component {
 
   componentWillMount() {
@@ -15,7 +13,7 @@ class Index extends Component {
       return (
         <div key={post.id}>
           <Link to={`/posts/${post.id}`} className="postings">
-            {post.title}
+              {post.title}                                                          by: {post.author}
           </Link>
         </div>
       );
@@ -31,7 +29,6 @@ class Index extends Component {
     );
   }
 }
-
 
 const mapStateToProps = (state) => (
   {

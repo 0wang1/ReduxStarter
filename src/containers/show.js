@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import marked from 'marked';
 import { fetchPost, deletePost, updatePost } from '../actions';
 
-// I need to add a submit button instead of updating all the time
 class Show extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +13,7 @@ class Show extends Component {
       title: '',
       tags: '',
       content: '',
+      currentAuthor: this.props.post.author,
     };
     this.editingMode = this.editingMode.bind(this);
     this.onEditClick = this.onEditClick.bind(this);
@@ -25,20 +25,22 @@ class Show extends Component {
   componentWillMount() {
     this.props.fetchPost(this.props.params.id);
   }
-  // Just changes the editing state
+
   onEditClick() {
-    if (this.state.isEditing) {
-      this.setState({
-        isEditing: false,
-      });
-      this.props.updatePost(this.state);
-    } else {
-      this.setState({
-        isEditing: true,
-      });
+    if (this.props.auth) {
+      if (this.state.isEditing) {
+        this.setState({
+          isEditing: false,
+        });
+        this.props.updatePost(this.state);
+      } else {
+        this.setState({
+          isEditing: true,
+        });
+      }
     }
   }
-  // Just changes the editing icon
+
   onIconChange() {
     if (this.state.isEditing) {
       return (<i className="fa fa-check-square-o fa-5x" onClick={() => {
@@ -92,6 +94,7 @@ class Show extends Component {
         <button id="deleteButton" onClick={() => { this.props.deletePost(this.props.params.id); }}>Delete</button>
         {this.onIconChange()}
         {this.editingMode()}
+        Last Edited By: {this.props.post.author}
       </div>
     );
   }
@@ -100,6 +103,7 @@ class Show extends Component {
 const mapStateToProps = (state) => (
   {
     post: state.posts.post,
+    auth: state.auth.authenticated,
   }
 );
 

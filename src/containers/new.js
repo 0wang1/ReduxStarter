@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { createPost } from '../actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import { createPost } from '../actions';
 
 class New extends Component {
   constructor(props) {
@@ -40,7 +41,9 @@ class New extends Component {
         </div>
         <div>
           <input id="submitID" onClick={() => { this.props.createPost(this.state); }} type="submit" />
-          <button id="cancelID">Cancel</button>
+          <Link to="/">
+            <button id="cancelID">Cancel</button>
+          </Link>
         </div>
       </div>
     );

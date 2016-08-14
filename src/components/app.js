@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from './nav-bar.js';
+import NavBar from '../containers/nav-bar.js';
 
 class App extends Component {
   constructor(props) {
