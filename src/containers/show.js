@@ -13,7 +13,6 @@ class Show extends Component {
       title: '',
       tags: '',
       content: '',
-      currentAuthor: this.props.post.author,
     };
     this.editingMode = this.editingMode.bind(this);
     this.onEditClick = this.onEditClick.bind(this);
