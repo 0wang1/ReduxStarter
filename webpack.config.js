@@ -6,6 +6,12 @@ module.exports = {
   stats: { colors: true },
   devtool: 'inline-source-map',
   entry: ['babel-polyfill', './src'],
+  devServer: {
+    port: 8080,
+    historyApiFallback: {
+      index: 'index.html',
+    },
+  },
   output: {
     path: 'build',
     publicPath: 'build/',
